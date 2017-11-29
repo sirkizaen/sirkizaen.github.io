@@ -16,30 +16,30 @@ func RemoveEven(input []int) []int {
 
 func PowerGenerator(val int) func() int {
 	prev := 1
-	return func() (res int) {
+	return func() (ret int) {
 		ret = prev * val
-		prev = res
+		prev = ret
 		return
 	}
 }
 
-func DifferentWordsCount(str string) (count int) {
-	var w string
+func DifferentWordsCount(str string) (cnt int) {
+	var word string
 	m := make(map[string]bool)
 	for _, val := range str {
-		if (val >= 'A' && val <= 'Z') || (val >= 'a' && val <= 'z')  {
-			w += string(unicode.ToLower(val))
+		if (val >= 'a' && val <= 'z') || (val >= 'A' && val <= 'Z') {
+			word += string(unicode.ToLower(val))
 		} else {
-			if len(w) != 0 {
-				m[w] = true
+			if len(word) != 0 {
+				m[word] = true
 			}
-			w = ""
+			word = ""
 		}
 	}
-	if len(w) != 0 {
-		m[w] = true
+	if len(word) != 0 {
+		m[word] = true
 	}
-	w = ""
-	count = len(m)
+	word = ""
+	cnt = len(m)
 	return
 }
